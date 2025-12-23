@@ -1,0 +1,34 @@
+name: HxFixedItem
+version: ${project.version}
+main: com.hxstar.fixeditem.HxFixedItem
+api-version: '1.20'
+author: TheMagic_Star幻星
+description: 背包槽位物品固定插件 - 支持自定义固定物品和命令执行
+website: https://github.com/TheMagic_Star
+
+# 软前置插件
+softdepend:
+  - PlaceholderAPI
+
+# 命令注册
+commands:
+  hxfixeditem:
+    description: HxFixedItem 插件主命令
+    usage: /hxfixeditem <reload|remove|give|help>
+    aliases:
+      - hxfi
+
+# 权限注册
+permissions:
+  hxfixeditem.admin:
+    description: 允许使用所有管理命令
+    default: op
+  hxfixeditem.reload:
+    description: 允许重载配置文件
+    default: op
+  hxfixeditem.remove:
+    description: 允许移除玩家的固定物品
+    default: op
+  hxfixeditem.give:
+    description: 允许给予玩家固定物品
+    default: op

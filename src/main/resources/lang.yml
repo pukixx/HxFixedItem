@@ -1,0 +1,90 @@
+# 作者: @TheMagic_Star幻星
+#
+# 颜色代码支持:
+# - 传统代码: &a, &b, &c, &l, &o 等
+# - HEX代码: &#FF5555, {#FF5555}, <#FF5555>
+#
+# 占位符说明:
+# {player} - 玩家名称
+# {item} - 物品ID
+# {time} - 时间
+# {world} - 世界名称
+# {error} - 错误信息
+#
+
+# ==================== 消息前缀 ====================
+prefix: "&#FFD700▌ &#FFFFFFHxFixedItem &#555555» &r"
+
+# ==================== 物品保护消息 ====================
+protection:
+  # 禁止丢弃
+  cannot-drop: "&#FF6B6B✘ &f该物品无法丢弃！"
+
+  # 禁止移动
+  cannot-move: "&#FF6B6B✘ &f该物品无法移动！"
+
+  # 禁止存入容器
+  cannot-container: "&#FF6B6B✘ &f该物品无法放入容器！"
+
+# ==================== 冷却消息 ====================
+cooldown:
+  # 冷却提示
+  wait: "&#FFA500⏳ &f请等待 &#FFFF00{time} &f秒后再次使用！"
+
+# ==================== 命令消息 ====================
+command:
+  # 没有权限
+  no-permission: "&#FF6B6B✘ &f你没有权限执行此命令！"
+
+  # 未知命令
+  unknown: "&#FF6B6B✘ &f未知的子命令！"
+
+  # 玩家不在线
+  player-not-found: "&#FF6B6B✘ &f玩家 &#FFFF00{player} &f不在线！"
+
+  # 物品不存在
+  item-not-found: "&#FF6B6B✘ &f物品 &#FFFF00{item} &f不存在！"
+
+  # 世界未启用
+  world-not-enabled: "&#FF6B6B✘ &f世界 &#FFFF00{world} &f未启用固定物品功能！"
+
+  # 重载成功
+  reload-success: "&#50C878✔ &f配置文件重载成功！"
+
+  # 重载失败
+  reload-failed: "&#FF6B6B✘ &f配置文件重载失败: &#FFFF00{error}"
+
+  # 移除特定物品成功
+  remove-item-success: "&#50C878✔ &f已移除 &#FFFF00{player} &f的固定物品: &#FFFF00{item}"
+
+  # 移除所有物品成功
+  remove-all-success: "&#50C878✔ &f已移除 &#FFFF00{player} &f的所有固定物品！"
+
+  # 给予成功
+  give-success: "&#50C878✔ &f已给予 &#FFFF00{player} &f所有固定物品！"
+
+  # 移除命令用法
+  remove-usage: "&#FFA500用法: &f/hxfixeditem remove <玩家> [物品ID]"
+
+  # 给予命令用法
+  give-usage: "&#FFA500用法: &f/hxfixeditem give <玩家>"
+
+# ==================== 帮助信息 ====================
+help:
+  # 帮助标题
+  header: "&#FFD700═══════════ &#FFFFFFHxFixedItem 帮助 &#FFD700═══════════"
+
+  # 重载命令帮助
+  reload: "  &#50C878/hxfixeditem reload &8- &#AAAAAA重新加载配置文件"
+
+  # 移除命令帮助
+  remove: "  &#50C878/hxfixeditem remove <玩家> [物品ID] &8- &#AAAAAA移除固定物品"
+
+  # 给予命令帮助
+  give: "  &#50C878/hxfixeditem give <玩家> &8- &#AAAAAA给予固定物品"
+
+  # 帮助命令帮助
+  help: "  &#50C878/hxfixeditem help &8- &#AAAAAA显示此帮助信息"
+
+  # 帮助底部
+  footer: "&#FFD700════════════════════════════════════════"

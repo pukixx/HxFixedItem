@@ -1,0 +1,196 @@
+#  _   _       ______ _              _ _____ _
+# | | | |     |  ____(_)            | |_   _| |
+# | |_| |_  __| |__   ___  _____  __| | | | | |_ ___ _ __ ___
+# |  _  \ \/ /|  __| | \ \/ / _ \/ _` | | | | __/ _ \ '_ ` _ \
+# | | | |>  < | |    | |>  <  __/ (_| |_| |_| ||  __/ | | | | |
+# |_| |_/_/\_\|_|    |_/_/\_\___|\__,_|_____|_\ \___|_| |_| |_|
+#
+# HxFixedItem 配置文件
+# 作者: @TheMagic_Star幻星
+# 版本: 1.0.0
+#
+# 颜色代码支持:
+# - 传统代码: &a, &b, &c, &l, &o 等
+# - HEX代码: &#FF5555, {#FF5555}, <#FF5555>
+#
+# PlaceholderAPI 支持:
+# - 在命令和物品描述中支持 %placeholder% 格式
+# - 需要安装 PlaceholderAPI 插件（可选）
+#
+
+# ==================== 基础设置 ====================
+settings:
+  # 定时检查间隔（秒）
+  # 插件会定时检查并恢复丢失的固定物品
+  # 设置为 0 禁用定时检查
+  check-interval: 5
+
+  # 调试模式
+  # 开启后会在控制台输出更多信息，用于排查问题
+  debug: false
+
+# ==================== 启用的世界 ====================
+# 只有在这些世界中，固定物品功能才会生效
+# 留空则表示所有世界都启用
+# 示例:
+# enabled-worlds:
+#   - world
+#   - world_nether
+#   - lobby
+enabled-worlds:
+  - world
+
+# ==================== 固定物品配置 ====================
+# 可以配置多个固定物品，每个物品使用唯一的ID标识
+# 槽位说明: 0-8 是快捷栏，9-35 是主背包
+#
+# 音效列表参考: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+# 常用音效:
+#   - UI_BUTTON_CLICK (按钮点击)
+#   - ENTITY_EXPERIENCE_ORB_PICKUP (经验球拾取)
+#   - ENTITY_PLAYER_LEVELUP (升级)
+#   - BLOCK_NOTE_BLOCK_PLING (音符盒叮)
+#   - ENTITY_VILLAGER_YES (村民同意)
+#   - ENTITY_ENDERMAN_TELEPORT (末影人传送)
+#
+fixed-items:
+
+  # ===== 菜单物品示例 =====
+  menu:
+    # 槽位位置 (0-8 为快捷栏)
+    slot: 4
+
+    # 物品材质 (必须是有效的 Material 名称)
+    # 参考: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+    material: NETHER_STAR
+
+    # 显示名称 (支持颜色代码和PlaceholderAPI)
+    display-name: "&#FFD700✦ &#FFFFFF服务器菜单 &#FFD700✦"
+
+    # 物品描述 (支持颜色代码和PlaceholderAPI)
+    lore:
+      - ""
+      - "&#AAAAAA▸ &f右键打开服务器主菜单"
+      - "&#AAAAAA▸ &f左键查看个人信息"
+      - ""
+      - "&#555555[ &#FFD700右键使用 &#555555]"
+
+    # 自定义模型数据 (用于资源包)
+    # 设置为 0 表示不使用
+    custom-model-data: 0
+
+    # 是否发光 (附魔效果)
+    glowing: true
+
+    # 左键配置
+    left-click:
+      enabled: true
+      # 命令列表 (支持占位符: {player}, {uuid}, {world}, {x}, {y}, {z} 和 PlaceholderAPI)
+      commands:
+        - "say {player} 查看了个人信息"
+      # 是否以控制台身份执行
+      as-console: true
+      # 冷却时间 (秒)
+      cooldown: 2
+      # 音效设置 (留空则不播放)
+      sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      sound-volume: 1.0
+      sound-pitch: 1.2
+
+    # 右键配置
+    right-click:
+      enabled: true
+      commands:
+        - "say {player} 打开了服务器菜单"
+      as-console: true
+      cooldown: 1
+      # 音效设置
+      sound: "UI_BUTTON_CLICK"
+      sound-volume: 1.0
+      sound-pitch: 1.0
+
+    # 保护设置
+    protection:
+      # 禁止丢弃
+      prevent-drop: true
+      # 禁止移动
+      prevent-move: true
+      # 死亡不掉落
+      prevent-death: true
+      # 禁止存入容器
+      prevent-container: true
+
+  # ===== 返回大厅物品示例 =====
+  lobby:
+    slot: 8
+    material: RED_BED
+    display-name: "&#FF6B6B✈ &#FFFFFF返回大厅 &#FF6B6B✈"
+    lore:
+      - ""
+      - "&#AAAAAA▸ &f右键返回服务器大厅"
+      - ""
+      - "&#FF6B6B⚠ &7传送中请勿移动"
+      - ""
+      - "&#555555[ &#FF6B6B右键使用 &#555555]"
+    custom-model-data: 0
+    glowing: false
+    left-click:
+      enabled: false
+      commands: []
+      as-console: false
+      cooldown: 0
+      sound: ""
+      sound-volume: 1.0
+      sound-pitch: 1.0
+    right-click:
+      enabled: true
+      commands:
+        - "spawn"
+      as-console: false
+      cooldown: 3
+      sound: "ENTITY_ENDERMAN_TELEPORT"
+      sound-volume: 1.0
+      sound-pitch: 1.0
+    protection:
+      prevent-drop: true
+      prevent-move: true
+      prevent-death: true
+      prevent-container: true
+
+  # ===== 商店物品示例 =====
+  shop:
+    slot: 0
+    material: EMERALD
+    display-name: "&#50C878💎 &#FFFFFF商店 &#50C878💎"
+    lore:
+      - ""
+      - "&#AAAAAA▸ &f右键打开服务器商店"
+      - "&#AAAAAA▸ &f购买各种物品和服务"
+      - ""
+      - "&#50C878$ &7当前余额: &a%vault_eco_balance%"
+      - ""
+      - "&#555555[ &#50C878右键使用 &#555555]"
+    custom-model-data: 0
+    glowing: true
+    left-click:
+      enabled: false
+      commands: []
+      as-console: false
+      cooldown: 0
+      sound: ""
+      sound-volume: 1.0
+      sound-pitch: 1.0
+    right-click:
+      enabled: true
+      commands:
+        - "say {player} 打开了商店"
+      as-console: true
+      cooldown: 2
+      sound: "BLOCK_NOTE_BLOCK_PLING"
+      sound-volume: 1.0
+      sound-pitch: 1.5
+    protection:
+      prevent-drop: true
+      prevent-move: true
+      prevent-death: true
+      prevent-container: true
